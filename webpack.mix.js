@@ -14,3 +14,5 @@ let mix = require('laravel-mix');
 mix.copyDirectory('resources/assets/bower_components/lms-css-hungph', 'public/assets');
 
 mix.copyDirectory('resources/assets/bower_components/lms-js-hungph', 'public/assets');
+
+mix.copyDirectory('resources/assets/bower_components/lms', 'public/assets/admin');
