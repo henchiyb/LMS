@@ -5,14 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Specialize extends Model
+class Lesson extends Model
 {
     use SoftDeletes;
     
-    protected $table = 'specializes';
+    protected $table = 'lessons';
 
     protected $fillable = [
-        'name',
-        'teaching_grade',
+        'title',
+        'description',
+        'video_link',
+        'duration',
+        'course_id',
     ];
 }

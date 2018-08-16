@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SpecializesUser extends Model
+class Comment extends Model
 {
-    protected $table = 'specializes_users';
+    protected $table = 'comments';
 
     protected $fillable = [
-        'specialize_id',
+        'content',
+        'parent_id',
+        'course_id',
         'user_id',
     ];
 }

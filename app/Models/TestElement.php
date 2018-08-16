@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Specialize extends Model
+class TestElement extends Model
 {
     use SoftDeletes;
     
-    protected $table = 'specializes';
+    protected $table = 'test_elements';
 
     protected $fillable = [
-        'name',
-        'teaching_grade',
+        'question',
+        'answer',
+        'test_id',
     ];
 }
