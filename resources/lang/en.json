@@ -155,5 +155,19 @@
     "successfully": "Successfully",
     "lecture duration": "Lecture's duration",
     "uploaded person": "Uploaded person",
-    "uploaded person descript": "The person who uploaded this lecture"
+    "uploaded person descript": "The person who uploaded this lecture",
+    "lms": "Learning Management System || LIXIL",
+    "login": "Login",
+    "sign_up": "Sign Up",
+    "login_pls": "Log In to Your LMS Account!",
+    "create_an_account": "Create An Account",
+    "sign_up_pls": "Sign Up and Start Learning!",
+    "your_name": "Your name *",
+    "your_email": "Email *",
+    "your_password": "Password *",
+    "your_password_confirmation": "Password confirmation *",
+    "you_are": "You are: ",
+    "teacher_student": "Teacher or student ?",
+    "my_profile": "My profile",
+    "remember_me": "Keep me login"
 }

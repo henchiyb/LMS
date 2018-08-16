@@ -1,5 +1,9 @@
 @extends('users.layouts.default')
 
+@section('title')
+    {{ __('lms') }}
+@endsection
+
 @section('content')
     <section class="for-box">
         <!-- .for-box -->

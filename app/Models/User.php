@@ -27,6 +27,7 @@ class User extends Authenticatable
         'working_place',
         'role',
         'grade',
+        'isAdmin',
         'isActive',
         'last_login',
     ];
@@ -39,5 +40,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+    ];
+
+    const ROLE_TEACHER = 0;
+    const ROLE_STUDENT = 1;
+    public static $roles = [
+        self::ROLE_TEACHER => 'Teacher',
+        self::ROLE_STUDENT => 'Student',
     ];
 }
