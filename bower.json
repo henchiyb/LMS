@@ -1,0 +1,21 @@
+{
+  "name": "LMS",
+  "description": "",
+  "main": "",
+  "authors": [
+    "=hungph.dev.ict <=hungph.dev.ict@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/hungph-dev-ict/LMS",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lms-css-hungph": "*",
+    "lms-js-hungph": "*"
+  }
+}
