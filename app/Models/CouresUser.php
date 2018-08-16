@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SpecializesUser extends Model
+class CouresUser extends Model
 {
-    protected $table = 'specializes_users';
+    protected $table = 'courses_users';
 
     protected $fillable = [
-        'specialize_id',
+        'course_id',
         'user_id',
+        'point',
+        'rank',
     ];
 }
