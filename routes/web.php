@@ -18,3 +18,9 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('users.home');
 })->name('home');
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admins.'], function () {
+    Route::get('/', 'AdminController@index')->name('adminDashboard');
+
+    Route::resource('specializes', 'SpecializeController')->except('create', 'show');
+});
