@@ -23,8 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('avatar');
             $table->string('personal_info')->nullable();
-            $table->string('working_place');
-            $table->tinyInteger('grade');
+            $table->string('working_place')->nullable();
+            $table->tinyInteger('grade')->nullable();
             $table->tinyInteger('role');
             $table->tinyInteger('isAdmin');
             $table->tinyInteger('isActive');
