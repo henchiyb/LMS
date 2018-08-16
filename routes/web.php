@@ -19,6 +19,12 @@ Route::get('/home', function () {
     return view('users.home');
 })->name('home');
 
+Auth::routes();
+
+Route::group(['namespace' => 'users'], function () {
+    Route::resource('users', 'UserController');
+});
+
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admins.'], function () {
     Route::get('/', 'AdminController@index')->name('adminDashboard');
 

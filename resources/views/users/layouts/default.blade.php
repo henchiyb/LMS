@@ -3,7 +3,11 @@
     @include('users.layouts.head')
     @yield('inline_styles')
     <body>
-        @include('users.layouts.header')
+        @if(\Request::route()->getName() === 'home')
+            @include('users.layouts.home_header')
+        @else
+            @include('users.layouts.header')
+        @endif
         <!--Content-->
         @yield('content')
         <!--./Content -->
