@@ -71,5 +71,64 @@ class UsersTableSeeder extends Seeder
             'isAdmin' => '0',
             'isActive' => '1',
         ]);
+
+        User::create([
+            'name' => 'Thanh',
+            'email' => 'thanh@gmail.com',
+            'password' => Hash::make('123456'),
+            'phone' => '+01665118758',
+            'birthday' => '1996-12-04',
+            'address' => 'Ha Noi',
+            'personal_info' => 'Một trong những giáo viên tốt nhất tại BKHN',
+            'role' => '0',
+            'avatar' => config('app.image') .'avatar/lam.jpg',
+            'working_place' => 'BKHN',
+            'isAdmin' => '0',
+            'isActive' => '1',
+        ]);
+
+        User::create([
+            'name' => 'Phong',
+            'email' => 'phong@gmail.com',
+            'password' => Hash::make('123456'),
+            'phone' => '+84123274821',
+            'birthday' => '1989-12-19',
+            'address' => 'Ha Noi',
+            'personal_info' => 'Một trong những giáo viên tốt nhất tại BKHN',
+            'role' => '0',
+            'avatar' => config('app.image') .'avatar/minh.jpg',
+            'working_place' => 'BKHN',
+            'isAdmin' => '0',
+            'isActive' => '1',
+        ]);
+
+        User::create([
+            'name' => 'Hai',
+            'email' => 'hai@gmail.com',
+            'password' => Hash::make('123456'),
+            'phone' => '+016658873389',
+            'birthday' => '2004-01-13',
+            'address' => 'Ha Noi',
+            'personal_info' => 'Một trong những sinh viên giỏi nhất tại BKHN',
+            'role' => '1',
+            'avatar' => config('app.image') .'avatar/minh.jpeg',
+            'working_place' => 'BKHN',
+            'isAdmin' => '0',
+            'isActive' => '1',
+        ]);
+
+        User::create([
+            'name' => 'Le',
+            'email' => 'le@gmail.com',
+            'password' => Hash::make('123456'),
+            'birthday' => '2008-12-02',
+            'address' => 'Ha Noi',
+            'personal_info' => 'Một trong những sinh viên giỏi nhất tại BKHN',
+            'role' => '1',
+            'avatar' => config('app.image') .'avatar/hung.jpeg',
+            'working_place' => 'BKHN',
+            'isAdmin' => '0',
+            'isActive' => '1',
+        ]);
     }
 }
