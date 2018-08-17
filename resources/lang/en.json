@@ -103,7 +103,6 @@
     "content": "Content",
     "accept": "Accept",
     "advertisement": "Advertisement",
-    "my_profile": "My profile",
     "select_all": "Select: All",
     "type to search": "Type to search...",
     "setting": "Setting",
@@ -141,11 +140,11 @@
     "discussion": "Discussion",
     "create_lecture": "Create lecture",
     "close-modal": "Close",
-    "title": "Title: ",
+    "title": "Title",
     "description": "Description: ",
     "link_video": "URL video: ",
     "add_lecture": "Add Lecture",
-    "update existed classroom": "Update existed classroom",
+    "update existed category": "Update existed category",
     "joined people list": "Joined people list",
     "create_lecture_success": "Create lecture success, wait for approve from admin",
     "update_lecture": " Update Lecture",
@@ -169,5 +168,9 @@
     "you_are": "You are: ",
     "teacher_student": "Teacher or student ?",
     "my_profile": "My profile",
-    "remember_me": "Keep me login"
+    "remember_me": "Keep me login",
+    "all categories": "All categories",
+    "parent category": "Parent Category",
+    "whoops": "Whoops! Looks like you got lost",
+    "go back": "Go back"
 }

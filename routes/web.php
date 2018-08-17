@@ -29,4 +29,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admins.'], f
     Route::get('/', 'AdminController@index')->name('adminDashboard');
 
     Route::resource('specializes', 'SpecializeController')->except('create', 'show');
+
+    Route::resource('categories', 'CategoryController')->except('create', 'show');
 });

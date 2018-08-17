@@ -4,21 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Specialize;
-use App\Http\Requests\CreateSpecializeRequest;
+use App\Models\Category;
+use App\Http\Requests\FormCategoryRequest;
 
-class SpecializeController extends Controller
+class CategoryController extends Controller
 {
-    protected $modelSpecialize;
+    protected $modelCategory;
     /**
      * Create a new controller instance.
      *
      * @param Specialize $specialize
      * @return void
      */
-    public function __construct(Specialize $specialize)
+    public function __construct(Category $category)
     {
-        $this->modelSpecialize = $specialize;
+        $this->modelCategory = $category;
     }
 
     /**
@@ -28,9 +28,21 @@ class SpecializeController extends Controller
      */
     public function index()
     {
-        $specializes = Specialize::all();
+        $categories = Category::all();
+        $parentCategories = Category::all()->where('parent_id', 0)->pluck('title', 'id');
+        $parentCategories[0] = 'No choice';
         
-        return view('admin.specializes.index', compact('specializes'));
+        return view('admin.categories.index', compact('categories', 'parentCategories'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -39,10 +51,10 @@ class SpecializeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateSpecializeRequest $request)
+    public function store(FormCategoryRequest $request)
     {
         $data = $request->all();
-        $result = $this->modelSpecialize->createSpecialize($data);
+        $result = $this->modelCategory->createCategory($data);
 
         if ($result) {
             flash(__('create status') . $result->id)->success();
@@ -50,7 +62,18 @@ class SpecializeController extends Controller
             flash(__('something wrong'))->error();
         }
     
-        return redirect(route('admins.specializes.index'));
+        return redirect(route('admins.categories.index'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -61,9 +84,10 @@ class SpecializeController extends Controller
      */
     public function edit($id)
     {
-        $specialize = Specialize::findOrFail($id);
+        $category = Category::findOrFail($id);
+        $parentCategories = Category::all()->where('parent_id', 0)->pluck('title', 'id');
 
-        return view('admin.specializes.edit', compact('specialize'));
+        return view('admin.categories.edit', compact('category', 'parentCategories'));
     }
 
     /**
@@ -73,10 +97,10 @@ class SpecializeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateSpecializeRequest $request, $id)
+    public function update(FormCategoryRequest $request, $id)
     {
         $data = $request->all();
-        $result = $this->modelSpecialize->updateSpecialize($data, $id);
+        $result = $this->modelCategory->updateCategory($data, $id);
 
         if ($result) {
             flash(__('update status') . $id)->success();
@@ -84,7 +108,7 @@ class SpecializeController extends Controller
             flash(__('something wrong'))->error();
         }
 
-        return redirect(route('admins.specializes.edit', $id));
+        return redirect(route('admins.categories.edit', $id));
     }
 
     /**
@@ -95,7 +119,7 @@ class SpecializeController extends Controller
      */
     public function destroy($id)
     {
-        $result = $this->modelSpecialize->deleteSpecialize($id);
+        $result = $this->modelCategory->deleteCategory($id);
 
         if ($result) {
             flash(__('delete status') . $id)->success();
@@ -103,6 +127,6 @@ class SpecializeController extends Controller
             flash(__('something wrong'))->error();
         }
 
-        return redirect(route('admins.specializes.index'));
+        return redirect(route('admins.categories.index'));
     }
 }
