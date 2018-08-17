@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="#">
+                <a class="dropdown-toggle" href="{{ route('admins.categories.index') }}">
                     <span class="icon-holder">
                         <i class="mdi mdi-briefcase"></i>
                     </span>

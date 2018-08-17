@@ -1,7 +1,7 @@
 @extends('admin.admin_layouts.master')
 
 @section('title')
-    {{ __('all specializes') }}
+    {{ __('all categories') }}
 @endsection
 
 @section('inline_styles')
@@ -16,18 +16,18 @@
     <div class="main-content">
         <div class="container-fluid">
             <div class="page-header">
-                <h2 class="header-title">{{ __('specializes') }}</h2>
+                <h2 class="header-title">{{ __('categories') }}</h2>
                 <div class="header-sub-title">
                     <nav class="breadcrumb breadcrumb-dash">
                         <a href="{{ route('admins.adminDashboard') }}" class="breadcrumb-item">
                             <i class="ti-home p-r-5"></i>{{ __('admin dashboard') }}
                         </a>
-                        <a class="breadcrumb-item active">{{ __('specializes') }}</a>
+                        <a class="breadcrumb-item active">{{ __('categories') }}</a>
                     </nav>
                 </div>
             </div>  
             <div class="create-btn">
-                <a class="btn btn-gradient-success btn-rounded" data-toggle="modal" data-target="#create-specialize-modal">
+                <a class="btn btn-gradient-success btn-rounded" data-toggle="modal" data-target="#create-categories-modal">
                     {{ __('add new') }} <i class="fa fa-plus"></i>
                 </a>
             </div>
@@ -38,23 +38,27 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>{{ __('name') }}</th>
-                                    <th>{{ __('teaching_grade') }}</th>
+                                    <th>{{ __('title') }}</th>
+                                    <th>{{ __('parent category') }}</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($specializes as $specialize)
-                                    <tr id="specialize{{ $specialize->id }}">
-                                        <td>{{ $specialize->id }}</td>
+                                @foreach ($categories as $category)
+                                    <tr id="category{{ $category->id }}">
+                                        <td>{{ $category->id }}</td>
                                         <td>
-                                            <a href="{{ route('admins.specializes.edit', $specialize->id) }}">{{ $specialize->name }}</a>
+                                            <a href="{{ route('admins.categories.edit', $category->id) }}">{{ $category->title }}</a>
                                         </td>
-                                        <td>{{ $specialize->teaching_grade }}</td>
+                                        @if ($category->parent_id !== 0)
+                                            <td>{{ $category->getParentCategoryById($category->parent_id)->title }}</td>
+                                        @else
+                                            <td></td>
+                                        @endif
                                         <td class="text-center font-size-18">
                                             <a class="text-gray" data-toggle="modal" 
                                                 data-target="#delete-modal"
-                                                data-url="{{ route('admins.specializes.destroy', $specialize->id) }}">
+                                                data-url="{{ route('admins.categories.destroy', $category->id) }}">
                                                 <i class="ti-trash"></i>
                                             </a>
                                         </td>
@@ -70,7 +74,7 @@
 @endsection
 
 @include('admin.admin_layouts.delete_modal')
-@include('admin.specializes.create_special_modal')
+@include('admin.categories.create_category_modal', ['parentCategories' => $parentCategories])
 
 @section('inline_scripts')
     <script src="{{ asset('assets/admin/vendor/datatables/media/js/jquery.dataTables.js') }}"></script>
@@ -79,7 +83,7 @@
     <script>    
         $(document).ready(function(){
             @if (count($errors) > 0)
-                $('#create-specialize-modal').modal('show');
+                $('#create-categories-modal').modal('show');
             @endif
 
             $('#delete-modal').on('show.bs.modal', function(e){

@@ -15,43 +15,45 @@
     <div class="main-content">
         <div class="container-fluid">
             <div class="page-header">
-                <h2 class="header-title">{{ __('specializes') }}</h2>
+                <h2 class="header-title">{{ __('categories') }}</h2>
                 <div class="header-sub-title">
                     <nav class="breadcrumb breadcrumb-dash">
                         <a href="{{ route('admins.adminDashboard') }}" class="breadcrumb-item">
                             <i class="ti-home p-r-5"></i>{{ __('admin dashboard') }}
                         </a>
-                        <a href="{{ route('admins.specializes.index') }}" class="breadcrumb-item">
-                            {{ __('specializes') }}
+                        <a href="{{ route('admins.categories.index') }}" class="breadcrumb-item">
+                            {{ __('categories') }}
                         </a>
-                    <span class="breadcrumb-item active">{{ $specialize->name }}</span>
+                    <span class="breadcrumb-item active">{{ $category->title }}</span>
                     </nav>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header border bottom">
-                    <h4 class="card-title">{{ __('update existed specialize') }}</h4>
+                    <h4 class="card-title">{{ __('update existed category') }}</h4>
                 </div>
                 <div class="card-body">
-                    {{ Form::model($specialize, ['route' => ['admins.specializes.update', $specialize->id], 'method' => 'put']) }}
+                    {{ Form::model($category, ['route' => ['admins.categories.update', $category->id], 'method' => 'put']) }}
 
                         @foreach ($errors->all() as $error)
                             <p class="alert alert-danger fix-alert">{{ $error }}</p>
                         @endforeach
-                        
+
                         <div class="row">
                             <div class="col-sm-10 offset-sm-1">
                                 <div class="row">
                                     <div class="col-sm-8 offset-sm-2">
                                         <form class="m-t-45">
                                             <div class="form-group">
-                                                {!! Form::label('name', __('name'), ['class' => 'control-label']) !!}
-                                                {{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name', 'placeholder' => __('name')]) }}
+                                                {!! Form::label('title', __('title'), ['class' => 'control-label']) !!}
+                                                {!! Form::text('title', null, ['class' => 'form-control']) !!}
                                             </div>
-                                            <div class="form-group">
-                                                {!! Form::label('teaching_grade', __('teaching_grade'), ['class' => 'control-label']) !!}
-                                                {{ Form::text('teaching_grade', null, ['class' => 'form-control', 'id' => 'teaching_grade', 'placeholder' => __('teaching_grade')]) }}
-                                            </div>
+                                            @if ($category->parent_id !== 0) 
+                                                <div class="form-group">
+                                                    {!! Form::label('parent_id', __('parent category'), ['class' => 'control-label']) !!}
+                                                    {!! Form::select('parent_id', $parentCategories, $category->parent_id, ['class' => 'form-control']) !!}
+                                                </div>
+                                            @endif
                                             <div class="form-group">
                                                 <div class="text-sm-right">
                                                     {{ Form::submit(__('update'), ['class' => 'btn btn-gradient-success m-b-20']) }}
