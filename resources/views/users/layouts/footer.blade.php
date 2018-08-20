@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="flog"><img src="assets/img/logo.png" alt="f-logo" /></div>
+				<div class="flog"><img src="{{ asset('assets/img/logo.png') }}" alt="f-logo" /></div>
 			</div>
 			<div class="col-12-12 col-sm-6 col-md-6">
 				<span class="address">123, Radio Station, San francisco<br>
@@ -69,3 +69,4 @@
 <script src="{{ asset('assets/owl-carousel/owl.carousel.js') }}"></script>
 <!--  Custom Theme JavaScript  -->
 <script src="{{ asset('assets/js/custom.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/bootstrap-notify.min.js') }}"></script>

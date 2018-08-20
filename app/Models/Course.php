@@ -26,4 +26,20 @@ class Course extends Model
         'category_id',
         'user_id',
     ];
+
+    /**
+     * Get the user that owns the phone.
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    /**
+     * The roles that belong to the user.
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User', 'courses_users');
+    }
 }
