@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'avatar' => 'avatar/none_avatar.png',
+            'avatar' => config('app.image') . '/none_avatar.png',
             'role' => '0',
             'isAdmin' => '0',
             'isActive' => '0',

@@ -172,5 +172,18 @@
     "all categories": "All categories",
     "parent category": "Parent Category",
     "whoops": "Whoops! Looks like you got lost",
-    "go back": "Go back"
+    "go back": "Go back",
+    "student_profile": "Student Profile",
+    "teacher_profile": "Teacher Profile",
+    "email": "Email",
+    "phone_number": "Phone number",
+    "date_of_birth": "Date of birth",
+    "personal_info": "Personal info",
+    "last_login": "Last login at",
+    "courses": "Courses",
+    "skill_experience": "SKILLS AND EXPERIENCE OF ",
+    "students": "Students",
+    "avg_rate": "Average Rating",
+    "edit_profile": "Edit Profile",
+    "update_user_success": "Update profile successfully !"
 }

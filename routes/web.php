@@ -21,8 +21,9 @@ Route::get('/home', function () {
 
 Auth::routes();
 
-Route::group(['namespace' => 'users'], function () {
-    Route::resource('users', 'UserController');
+Route::group(['namespace' => 'Users'], function () {
+    Route::resource('users', 'UserController')->only('show');
+    Route::post('users/{id}/update', 'UserController@update');
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admins.'], function () {

@@ -213,6 +213,5 @@ return [
 
     ],
 
-    'image' => 'public/images/',
-
+    'image' => 'images/',
 ];
