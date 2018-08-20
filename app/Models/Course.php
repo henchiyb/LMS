@@ -77,4 +77,19 @@ class Course extends Model
     {
         return User::findOrFail($userId);
     }
+
+    public function getCourseFollowView($count)
+    {
+        return Course::orderBy('views', 'desc')->take($count);
+    }
+
+    public function getCourseFollowRate($count)
+    {
+        return Course::orderBy('course_rate', 'desc')->take($count);
+    }
+
+    public function getCourseFollowNewest($count)
+    {
+        return Course::orderBy('created_at', 'desc')->take($count);
+    }
 }

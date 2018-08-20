@@ -28,6 +28,17 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::create([
+            'name' => 'teacher',
+            'email' => 'teacher@gmail.com',
+            'password' => Hash::make('123456'),
+            'address' => 'Ha Noi',
+            'role' => '0',
+            'avatar' => config('app.image') .'avatar/admin-avatar.jpg',
+            'isAdmin' => '0',
+            'isActive' => '1',
+        ]);
+
+        User::create([
             'name' => 'Lam',
             'email' => 'lam@gmail.com',
             'password' => Hash::make('123456'),

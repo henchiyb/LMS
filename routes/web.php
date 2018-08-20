@@ -24,6 +24,9 @@ Auth::routes();
 Route::group(['namespace' => 'Users'], function () {
     Route::resource('users', 'UserController')->only('show');
     Route::post('users/{id}/update', 'UserController@update');
+
+    Route::resource('courses', 'CourseController');
+    Route::get('courses/filter/{filter}', 'CourseController@getCourseFollowFilter')->name('courses.filter');
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admins.'], function () {

@@ -214,4 +214,8 @@ return [
     ],
 
     'image' => 'images/',
+    'trendNumber' => 10,
+    'ratePercent' => 20,
+    'filterCount' => 100,
+    'paginateCount' => 12,
 ];

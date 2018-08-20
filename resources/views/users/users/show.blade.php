@@ -36,21 +36,21 @@
                                 </div>
                                 <a id="edit-profile">
                                     {{ __('edit_profile') }}
-                                </a>	
+                                </a>    
                                 <a href="#">
                                     Courses Manager
-                                </a>	
+                                </a>    
                                 {{--  <a href="#">
                                     Skills
-                                </a>	
+                                </a>    
                                 <a href="#">
                                     Notifications
-                                </a>	  --}}
+                                </a>      --}}
                             </div>
                         </div>
-                        <!-- /.student-outer -->					
+                        <!-- /.student-outer -->
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-8">	
+                    <div class="col-xs-12 col-sm-6 col-md-8">
                         <!-- .teacher-info -->
                         <div class="student-info teacher-info">
                             <h3> {{ __('skill_experience') . strtoupper($selectedUser->name) }} :</h3>
@@ -59,13 +59,13 @@
                                 <li><span><i class="fa fa-hand-peace-o" aria-hidden="true"></i> {{ __('specializes') }} :</span> {{ $specializesName }} </li>
                                 <li><span><i class="fa fa-clipboard" aria-hidden="true"></i> {{ __('courses') }} :</span> {{ $coursesName }} </li>
                                 <li><span><i class="fa fa-envelope" aria-hidden="true"></i> {{ __('email') }} :</span> {{ $selectedUser->email }} </li>
-                                <li><span id="phone"><i class="fa fa-phone" aria-hidden="true"></i> {{ __('phone_number') }} :</span><div> {{ $selectedUser->phone }} </div></li>						
+                                <li><span id="phone"><i class="fa fa-phone" aria-hidden="true"></i> {{ __('phone_number') }} :</span><div> {{ $selectedUser->phone }} </div></li>
                                 <li><span id="birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i> {{ __('date_of_birth') }} :</span><div> {{ $selectedUser->birthday }} </div></li>
                                 <li><span id="address"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ __('address') }} :</span><div> {{ $selectedUser->address }} </div></li>
                             </ul>
                         </div>
                         <!-- .teacher-info -->
-                    </div>				
+                    </div>              
                     <div class="col-sm-12 col-md-12">
                     <div class="news-box teacher-biogaphy">
                         <h4>TEACHER’S BIOGRAPHY</h4>
@@ -405,21 +405,21 @@
                             {{-- <div class="student-text">
                                 <a href="#">
                                     ADD CONTACT
-                                </a>	
+                                </a>    
                                 <a href="#">
                                     INVITE TO CHAT
-                                </a>	
+                                </a>    
                                 <a href="#">
                                     SEND MESSAGE
-                                </a>	
+                                </a>    
                                 <a href="#">
                                     HANGOUT
-                                </a>	
+                                </a>    
                             </div> --}}
                         </div>
-                        <!-- /.student-outer -->					
+                        <!-- /.student-outer -->                    
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-8">	
+                    <div class="col-xs-12 col-sm-6 col-md-8">   
                         <!-- .student-info -->
                         <div class="student-info">
                             <h3> {{ $selectedUser->name }} <span>Student</span></h3>
@@ -435,7 +435,7 @@
                             </ul>
                         </div>
                         <!-- .student-info -->
-                    </div>				
+                    </div>              
                     
                 </div>
             </div>
