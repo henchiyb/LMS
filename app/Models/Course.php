@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\User;
 
 class Course extends Model
 {
@@ -41,5 +42,39 @@ class Course extends Model
     public function users()
     {
         return $this->belongsToMany('App\Models\User', 'courses_users');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
+
+    public function findCourse($id)
+    {
+        return Course::findOrFail($id);
+    }
+
+    public function createCourse($data)
+    {
+        return Course::create($data);
+    }
+
+    public function updateCourse($data, $id)
+    {
+        $result = Course::findOrFail($id)->update($data);
+
+        return $result;
+    }
+
+    public function deleteCourse($id)
+    {
+        $result = Course::findOrFail($id)->delete();
+
+        return $result;
+    }
+
+    public function getUserById($userId)
+    {
+        return User::findOrFail($userId);
     }
 }
