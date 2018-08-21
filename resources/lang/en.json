@@ -21,7 +21,6 @@
     "specializes": "Specializes",
     "admin": "Admin",
     "course_list": "Course List",
-    "level": "Level",
     "teacher": "Teacher",
     "category": "Category",
     "time": "Time",
@@ -47,11 +46,6 @@
     "like_hl": "Like: high to low",
     "by": " by ",
     "course_detail": "Course Detail",
-    "teacher": "Teacher",
-    "category": "Category: ",
-    "lecture": "Lecture: ",
-    "time": "Time: ",
-    "view": "View: ",
     "posted_by": "Posted by ",
     "like": "Like ",
     "like:": "Like: ",
@@ -173,5 +167,8 @@
     "top_polular_courses": "Top popular courses",
     "top_rate_courses": "Top rate courses",
     "top_newest_courses": "Top newest courses",
-    "see_more": "See More Courses ..."
+    "see_more": "See More Courses ...",
+    "joined course": "Joined course",
+    "teaching course": "Teaching course",
+    "student numbers": "Student numbers"
 }
