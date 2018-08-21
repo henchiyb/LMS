@@ -38,4 +38,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admins.'], f
 
     Route::resource('courses', 'CourseController')->except('create', 'show', 'store');
     Route::get('courses/{id}/active', 'CourseController@active')->name('active-course');
+
+    Route::resource('users', 'UserController')->except('create', 'store');
 });

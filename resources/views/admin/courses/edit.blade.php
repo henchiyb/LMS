@@ -47,7 +47,7 @@
                             <div class="p-h-10">
                                 <div class="form-group">
                                     {{ Form::label('user', __('created by'), ['class' => 'control-label']) }}
-                                    <a href="#" class="form-control">{{ $course->getUserById($course->user_id)->name }}</a>
+                                    <a href="{{ route('admins.users.show', $course->user->id) }}" class="form-control">{{ $course->user->name }}</a>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                                         <tr id="person{{ $person->id }}">
                                             <td>{{ $person->id }}</td>
                                             <td>
-                                                <a href="#">{{ $person->name }}</a>
+                                                <a href="{{ route('admins.users.show', $person->id) }}">{{ $person->name }}</a>
                                             </td>
                                             <td>{{ \App\Models\User::$roles[$person->role] }}</td>
                                         </tr>

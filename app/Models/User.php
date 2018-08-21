@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes;
 
     protected $table = 'users';
     /**
@@ -83,5 +85,12 @@ class User extends Authenticatable
         $selectedUser = User::findOrFail($id);
 
         $selectedUser->update(['working_place' => $data['working_place'], 'phone' => $data['phone'], 'birthday' => $data['birthday'], 'address' => $data['address']]);
+    }
+
+    public function deleteUser($id)
+    {
+        $selectedUser = User::findOrFail($id)->delete();
+
+        return $selectedUser;
     }
 }
