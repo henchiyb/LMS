@@ -263,7 +263,7 @@
                         <!-- /.viewed-courses-box -->
                     </div>
                     <div class="col-md-12">
-                        <a href="#" class="button">Browse More Courses</a>
+                        <a href="{{ route('courses.index') }}" class="button">Browse More Courses</a>
                     </div>
                 </div>
             </div>

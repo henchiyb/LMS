@@ -12,7 +12,7 @@ class UserController extends Controller
     /**
      * The user repository instance.
      */
-    protected $user;
+    protected $modelUser;
 
     /**
      * Create a new controller instance.
