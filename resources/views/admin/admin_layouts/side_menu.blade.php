@@ -46,11 +46,11 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
+                <a class="dropdown-toggle" href="{{ route('admins.courses.index') }}">
                     <span class="icon-holder">
                         <i class="mdi mdi-discord"></i>
                     </span>
-                    <span class="title">{{ __('course') }}</span>
+                    <span class="title">{{ __('courses') }}</span>
                     <span class="arrow">
                         <i class="mdi mdi-chevron-right"></i>
                     </span>

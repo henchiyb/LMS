@@ -60,5 +60,50 @@ class CoursesUsersTableSeeder extends Seeder
             'course_id' => '3',
             'user_id' => '7',
         ]);
+
+        CoursesUser::create([
+            'course_id' => '4',
+            'user_id' => '3',
+        ]);
+
+        CoursesUser::create([
+            'course_id' => '4',
+            'user_id' => '4',
+        ]);
+
+        CoursesUser::create([
+            'course_id' => '4',
+            'user_id' => '7',
+        ]);
+
+        CoursesUser::create([
+            'course_id' => '4',
+            'user_id' => '8',
+        ]);
+
+        CoursesUser::create([
+            'course_id' => '5',
+            'user_id' => '7',
+        ]);
+
+        CoursesUser::create([
+            'course_id' => '5',
+            'user_id' => '8',
+        ]);
+
+        CoursesUser::create([
+            'course_id' => '5',
+            'user_id' => '3',
+        ]);
+
+        CoursesUser::create([
+            'course_id' => '6',
+            'user_id' => '3',
+        ]);
+
+        CoursesUser::create([
+            'course_id' => '6',
+            'user_id' => '7',
+        ]);
     }
 }

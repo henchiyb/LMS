@@ -32,4 +32,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admins.'], f
     Route::resource('specializes', 'SpecializeController')->except('create', 'show');
 
     Route::resource('categories', 'CategoryController')->except('create', 'show');
+
+    Route::resource('courses', 'CourseController')->except('create', 'show', 'store');
+    Route::get('courses/{id}/active', 'CourseController@active')->name('active-course');
 });

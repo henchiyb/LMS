@@ -63,5 +63,53 @@ class CoursesTableSeeder extends Seeder
             'category_id' => '11',
             'user_id' => '2',
         ]);
+
+        Course::create([
+            'title' => 'ES6',
+            'course_avatar' => config('app.image') . 'course_avatar/es6.jpeg',
+            'course_avatar_2' => config('app.image') . 'course_avatar/es6_2.png',
+            'course_avatar_3' => config('app.image') . 'course_avatar/es6_3.jpeg',
+            'description' => 'Một khoá học rất hay về ES6',
+            'lecture_numbers' => '6',
+            'duration' => '0',
+            'views' => '0',
+            'level' => '2',
+            'course_rate' => '5.0',
+            'isAccepted' => '1',
+            'category_id' => '2',
+            'user_id' => '5',
+        ]);
+
+        Course::create([
+            'title' => 'HTML',
+            'course_avatar' => config('app.image') . 'course_avatar/html.png',
+            'course_avatar_2' => config('app.image') . 'course_avatar/html2.png',
+            'course_avatar_3' => config('app.image') . 'course_avatar/html3.jpeg',
+            'description' => 'Hãy bắt đầu từ cơ bản với khoá HTML này',
+            'lecture_numbers' => '5',
+            'duration' => '0',
+            'views' => '0',
+            'level' => '2',
+            'course_rate' => '5.0',
+            'isAccepted' => '1',
+            'category_id' => '11',
+            'user_id' => '6',
+        ]);
+
+        Course::create([
+            'title' => 'nodejs',
+            'course_avatar' => config('app.image') . 'course_avatar/nodejs.png',
+            'course_avatar_2' => config('app.image') . 'course_avatar/nodejs2.jpeg',
+            'course_avatar_3' => config('app.image') . 'course_avatar/nodejs3.jpeg',
+            'description' => 'Bạn muốn bắt đầu học một framework mới cho server-side? Hãy bắt đầu từ khóa Nodejs này',
+            'lecture_numbers' => '6',
+            'duration' => '0',
+            'views' => '0',
+            'level' => '2',
+            'course_rate' => '3.0',
+            'isAccepted' => '1',
+            'category_id' => '10',
+            'user_id' => '6',
+        ]);
     }
 }
