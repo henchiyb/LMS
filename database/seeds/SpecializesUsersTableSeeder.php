@@ -25,5 +25,25 @@ class SpecializesUsersTableSeeder extends Seeder
             'specialize_id' => '3',
             'user_id' => '2',
         ]);
+
+        SpecializesUser::create([
+            'specialize_id' => '5',
+            'user_id' => '5',
+        ]);
+
+        SpecializesUser::create([
+            'specialize_id' => '6',
+            'user_id' => '6',
+        ]);
+
+        SpecializesUser::create([
+            'specialize_id' => '1',
+            'user_id' => '6',
+        ]);
+
+        SpecializesUser::create([
+            'specialize_id' => '4',
+            'user_id' => '5',
+        ]);
     }
 }

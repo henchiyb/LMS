@@ -5,13 +5,7 @@
 @endsection
 
 @section('title')
-    @if($type == 0)
-        {{ __('top_polular_courses') }}
-    @elseif($type == 1)
-        {{ __('top_rate_courses') }}
-    @elseif($type == 2)
-        {{ __('top_newest_courses') }}
-    @endif
+    {{ $category->title }}
 @endsection
 
 @section('content')
@@ -44,15 +38,12 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="text-center col-md-12">
-                    {{ $courses->links() }}
-                </div>
             </div>
         </div>
         <!-- /.courses -->
     </section>
 
-    
+
     <section class="px-bg2">
         <!-- .Subscribe -->
         <div class="container">

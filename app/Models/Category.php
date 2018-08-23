@@ -17,6 +17,11 @@ class Category extends Model
         'parent_id',
     ];
 
+    public function courses()
+    {
+        return $this->hasMany('App\Models\Course');
+    }
+
     public function getParentCategoryById($id)
     {
         $parentCategory = Category::findOrFail($id);

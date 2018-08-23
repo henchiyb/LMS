@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Users;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
@@ -71,7 +72,9 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        //
+        $course = Course::findOrFail($id);
+
+        return view('users.courses.show', compact('course'));
     }
 
     /**
@@ -129,5 +132,13 @@ class CourseController extends Controller
             'courses',
             'type'
         ));
+    }
+
+    public function getCourseByCategory($categoryId)
+    {
+        $category = Category::findOrFail($categoryId);
+        $courses = $category->courses;
+
+        return view('users.courses.course_category', compact('courses', 'category'));
     }
 }

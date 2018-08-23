@@ -68,36 +68,24 @@
                             <li>
                                 <a href="{{ route('home') }}">Home</a>                                      
                             </li>
-                            <li>
-                                <a href="about.html">About Us</a>                                       
-                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Courses</a>
                                 <div class="dropdown-menu dropdownhover-bottom mega-menu" role="menu">
                                     <div class="col-sm-12 col-md-12">
                                         <ul>
-                                            <li><a href="{{ route('courses.index') }}">All Courses (150)</a></li>
-                                            <li><a href="courses.html">UI/UX (12)</a></li>
-                                            <li><a href="courses.html">CMS (42)</a></li>
-                                            <li><a href="courses.html">Business (18)</a></li>
-                                            <li><a href="courses.html">Marketing (20)</a></li>
-                                            <li><a href="courses.html">Development (12)</a></li>
-                                            <li><a href="courses.html">It & Software ( 15)</a></li>
+                                            <li><a href="{{ route('courses.index') }}">All Courses</a></li>
+                                            @foreach($categories as $category)
+                                                <li><a href="{{ route('category-course', $category->id) }}">{{ $category->title }}</a></li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <a href="teacher.html">Teacher</a>
+                                <a href="#">About Us</a>
                             </li>
                             <li>
-                                <a href="student-portfolio.html">Student Profile</a>                                        
-                            </li>
-                            <li>
-                                <a href="pricing.html"><span>Pricing</span></a>
-                            </li>
-                            <li>
-                                <a href="contact.html"><span>Contact</span></a>
+                                <a href="#"><span>Contact</span></a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>

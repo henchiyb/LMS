@@ -49,6 +49,11 @@ class Course extends Model
         return $this->belongsTo('App\Models\Category');
     }
 
+    public function lessons()
+    {
+        return $this->hasMany('App\Models\Lesson');
+    }
+
     public function findCourse($id)
     {
         return Course::findOrFail($id);
