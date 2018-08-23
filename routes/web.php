@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('users.home');
-})->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
@@ -27,6 +25,7 @@ Route::group(['namespace' => 'Users'], function () {
 
     Route::resource('courses', 'CourseController');
     Route::get('courses/filter/{filter}', 'CourseController@getCourseFollowFilter')->name('courses.filter');
+    Route::get('category/{id}/courses', 'CourseController@getCourseByCategory')->name('category-course');
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admins.'], function () {

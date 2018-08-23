@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Embed\Embed;
 
 class Lesson extends Model
 {
@@ -18,4 +19,17 @@ class Lesson extends Model
         'duration',
         'course_id',
     ];
+
+    public function course()
+    {
+        return $this->belongsTo('App\Models\Course');
+    }
+
+    public function getVideoByLesson($lessonId)
+    {
+        $lesson = Lesson::findOrFail($lessonId);
+        $video = Embed::create($lesson->video_link);
+
+        return $video;
+    }
 }

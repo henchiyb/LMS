@@ -24,7 +24,7 @@
                                     <img class="courseImage" src="{{ asset($course->course_avatar) }}" alt="coureses-img1">
                                 </div>
                                 <div class="viewed-courses-text">
-                                    <a href="classroom-presence.html">
+                                    <a href="{{ route('courses.show', $course->id) }}">
                                         <h4><b> {{ $course->title }} </b></h6>
                                     </a>
                                     <p> {{ __('teacher') }}: {{ $course->user->name }} </p>
@@ -51,7 +51,7 @@
                                     <img class="courseImage" src="{{ asset($course->course_avatar) }}" alt="coureses-img1">
                                 </div>
                                 <div class="viewed-courses-text">
-                                    <a href="classroom-presence.html">
+                                    <a href="{{ route('courses.show', $course->id) }}">
                                         <h4><b> {{ $course->title }} </b></h6>
                                     </a>
                                     <p> {{ __('teacher') }}: {{ $course->user->name }} </p>
@@ -78,7 +78,7 @@
                                     <img class="courseImage" src="{{ asset($course->course_avatar) }}" alt="coureses-img1">
                                 </div>
                                 <div class="viewed-courses-text">
-                                    <a href="classroom-presence.html">
+                                    <a href="{{ route('courses.show', $course->id) }}l">
                                         <h4><b> {{ $course->title }} </b></h6>
                                     </a>
                                     <p> {{ __('teacher') }}: {{ $course->user->name }} </p>
