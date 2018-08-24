@@ -26,6 +26,8 @@ Route::group(['namespace' => 'Users'], function () {
     Route::resource('courses', 'CourseController');
     Route::get('courses/filter/{filter}', 'CourseController@getCourseFollowFilter')->name('courses.filter');
     Route::get('category/{id}/courses', 'CourseController@getCourseByCategory')->name('category-course');
+
+    Route::post('courses_users/activeCourse', 'CoursesUserController@changeStatus');
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admins.'], function () {

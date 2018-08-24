@@ -72,9 +72,9 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        $course = Course::findOrFail($id);
+        $selectedCourse = Course::findOrFail($id);
 
-        return view('users.courses.show', compact('course'));
+        return view('users.courses.show', compact('selectedCourse'));
     }
 
     /**
@@ -113,18 +113,21 @@ class CourseController extends Controller
 
     public function getCourseFollowFilter($filter)
     {
-        if($filter == 'popular') {
-            $courses = $this->modelCourse->getCourseFollowView(config('app.filterCount'))->paginate(config('app.paginateCount'));
+        if ($filter == 'popular') {
+            $courses = $this->modelCourse->getCourseFollowView(config('app.filterCount'))
+            ->paginate(config('app.paginateCount'));
             $type = 0;
         }
 
-        if($filter == 'rate') {
-            $courses = $this->modelCourse->getCourseFollowRate(config('app.filterCount'))->paginate(config('app.paginateCount'));
+        if ($filter == 'rate') {
+            $courses = $this->modelCourse->getCourseFollowRate(config('app.filterCount'))
+            ->paginate(config('app.paginateCount'));
             $type = 1;
         }
 
-        if($filter == 'newest') {
-            $courses = $this->modelCourse->getCourseFollowNewest(config('app.filterCount'))->paginate(config('app.paginateCount'));
+        if ($filter == 'newest') {
+            $courses = $this->modelCourse->getCourseFollowNewest(config('app.filterCount'))
+            ->paginate(config('app.paginateCount'));
             $type = 2;
         }
 

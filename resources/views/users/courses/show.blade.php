@@ -1,7 +1,7 @@
 @extends('users.layouts.default')
 
 @section('title')
-    {{ $course->title }}
+    {{ $selectedCourse->title }}
 @endsection
 
 @section('inline_styles')
@@ -16,23 +16,25 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 wow fadeInLeft  animated">
                     <!-- .vedio-box -->
                     <div class="vedio-box">
-                        <img src="{{ asset($course->course_avatar) }}" alt="course-avatar"/>
+                        <img src="{{ asset($selectedCourse->course_avatar) }}" alt="course-avatar"/>
                     </div>
                     <!-- /.vedio-box -->
                     <!-- .vedio-box -->
                     <div class="vedio-box-text">
                         <ul>
-                            <li><span>Course name :</span>{{ $course->title }}</li>
-                            <li><span>Instructor :</span>{{ $course->user->name }}</li>
-                            <li><span>Lecture No :</span>{{ $course->lecture_numbers }}</li>
-                            <li><span>Length :</span>{{ $course->duration }}</li>
+                            <li><span>Course name :</span>{{ $selectedCourse->title }}</li>
+                            <li><span>Instructor :</span>{{ $selectedCourse->user->name }}</li>
+                            <li><span>Lecture No :</span>{{ $selectedCourse->lecture_numbers }}</li>
+                            <li><span>Length :</span>{{ $selectedCourse->duration }}</li>
                             <li>
                                 <div class="star">
-                                    <div class="star-ratings-sprite"><span class="star-ratings-sprite-rating" style="width:{{ config('app.ratePercent') * $course->course_rate  }}%" data-course-rate="{{ $course->course_rate }}"></span></div>
-                                    {{ $course->course_rate }} ratings
+                                    <div class="star-ratings-sprite"><span class="star-ratings-sprite-rating" style="width:{{ config('app.ratePercent') * $selectedCourse->course_rate  }}%" data-course-rate="{{ $selectedCourse->course_rate }}"></span></div>
+                                    {{ $selectedCourse->course_rate }} ratings
                                 </div>
                             </li>
-                            <li><a href="#">Active Now</a></li>
+                            <li><a id="btn-active" href="#">Active Now</a></li>
+                            <input type="text" id="user_id" value="{{ Auth::user()->id }}" hidden="">
+                            <input type="text" id="course_id" value="{{ $selectedCourse->id }}" hidden="">
                         </ul>
                     </div>
                     <!-- /.vedio-box -->
@@ -44,7 +46,7 @@
                     </h2>
                     <div class="row">
                         <ul>
-                            @foreach($course->lessons as $lesson)
+                            @foreach($selectedCourse->lessons as $lesson)
                                 <li>
                                     <div class="row upcommin-text-outer">
                                         <div class="col-md-4">
@@ -93,21 +95,21 @@
                     <h2>{{ __('related course') }}</h2>
                 </div>
                 <div class="slickSlider">
-                    @foreach($course->user->courses as $course)
+                    @foreach($selectedCourse->user->courses as $selectedCourse)
                         <div class="col-xs-12 col-sm-6 col-md-3">
                             <div class="viewed-courses-box">
                                 <div class="viewed-courses-img">
-                                    <img class="courseImage" src="{{ asset($course->course_avatar) }}" alt="coureses-img1">
+                                    <img class="courseImage" src="{{ asset($selectedCourse->course_avatar) }}" alt="coureses-img1">
                                 </div>
                                 <div class="viewed-courses-text">
-                                    <a href="{{ route('courses.show', $course->id) }}l">
-                                        <h4><b> {{ $course->title }} </b></h6>
+                                    <a href="{{ route('courses.show', $selectedCourse->id) }}l">
+                                        <h4><b> {{ $selectedCourse->title }} </b></h6>
                                     </a>
-                                    <p> {{ __('teacher') }}: {{ $course->user->name }} </p>
+                                    <p> {{ __('teacher') }}: {{ $selectedCourse->user->name }} </p>
                                     <div class="star">
-                                        <div class="star-ratings-sprite"><span class="star-ratings-sprite-rating" style="width:{{ config('app.ratePercent') * $course->course_rate  }}%" data-course-rate="{{ $course->course_rate }}"></span></div>
+                                        <div class="star-ratings-sprite"><span class="star-ratings-sprite-rating" style="width:{{ config('app.ratePercent') * $selectedCourse->course_rate  }}%" data-course-rate="{{ $selectedCourse->course_rate }}"></span></div>
                                     </div>
-                                    <a href="#" class="ank5"> {{ __('active_now') }} </a>
+                                    <a href="" class="ank5"> {{ __('active_now') }} </a>
                                 </div>
                             </div>
                         </div>
@@ -126,6 +128,48 @@
                 infinite: true,
                 slidesToShow: 4,
                 slidesToScroll: 1
+            });
+
+            $('#btn-active').on('click', function() {
+                event.preventDefault();
+                
+                $.ajaxSetup({
+                    headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                            
+                $.post(
+                    '/courses_users/activeCourse',
+                    {
+                        user_id : $('#user_id').val(),
+                        course_id : $('#course_id').val()
+                    },
+                    function(data) {
+                        if (typeof(data) === 'boolean') {
+                            $('#active-btn button').removeClass('btn-warning');
+                            $('#active-btn button').addClass('btn-primary');
+                            $('#active-btn button').text(' {{ __('active_now') }} ');
+                            $.notify({
+                                // options
+                                message: '{{ __('cancel_active_success') }}' 
+                            },{
+                                // settings
+                                type: 'warning'
+                            });
+                        } else {
+                            $('#btn-active').text(' {{ __('cancel_active') }} ');
+                            $.notify({
+                                // options
+                                message: ' {{ __('active_success') }} ' 
+                            },{
+                                // settings
+                                type: 'success'
+                            });
+                        }                  
+                    },
+                    'json'
+                );
             });
         });
     </script>
