@@ -27,6 +27,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right fix-dropdown" aria-labelledby="navbarDropdown">
+                                    @can('is-student', Auth::user())
+                                    <a class="dropdown-item" href="{{ route('my-course', Auth::user()->id) }}">
+                                        {{ __('my course') }}
+                                    </a>
+                                    @endcan
                                     <a class="dropdown-item" href="{{ route('users.show', Auth::user()->id) }}">
                                         {{ __('my_profile') }}
                                     </a>
@@ -68,12 +73,14 @@
                             <li>
                                 <a href="{{ route('home') }}">Home</a>                                      
                             </li>
+                            <li>
+                                <a href="{{ route('courses.index') }}">Courses</a>
+                            </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Courses</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories</a>
                                 <div class="dropdown-menu dropdownhover-bottom mega-menu" role="menu">
                                     <div class="col-sm-12 col-md-12">
                                         <ul>
-                                            <li><a href="{{ route('courses.index') }}">All Courses</a></li>
                                             @foreach($categories as $category)
                                                 <li><a href="{{ route('category-course', $category->id) }}">{{ $category->title }}</a></li>
                                             @endforeach

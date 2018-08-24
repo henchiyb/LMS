@@ -143,4 +143,12 @@ class UserController extends Controller
     {
         //
     }
+
+    public function myCourse($userId)
+    {
+        $user = User::findOrFail($userId);
+        $courses = $user->course;
+
+        return view('users.users.my_course.index', compact('courses', 'user'));
+    }
 }

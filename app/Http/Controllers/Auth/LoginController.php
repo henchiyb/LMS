@@ -40,6 +40,15 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->isAdmin == 0) {
+            return redirect()->intended($this->redirectPath());
+        } else {
+            return redirect(route('admins.adminDashboard'));
+        }
+    }
+
     public function logout(Request $request)
     {
         $this->performLogout($request);

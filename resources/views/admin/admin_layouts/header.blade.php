@@ -136,17 +136,17 @@
             </li>
             <li class="user-profile dropdown dropdown-animated scale-left">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img class="profile-img img-fluid" src="" alt="avatar">
+                    <img class="profile-img img-fluid" src="{{ asset(Auth::user()->avatar) }}" alt="avatar">
                 </a>
                 <ul class="dropdown-menu dropdown-md p-v-0">
                     <li>
                         <ul class="list-media">
                             <li class="list-item p-15">
                                 <div class="media-img">
-                                    <img src="" alt="">
+                                    <img src="{{ asset(Auth::user()->avatar) }}" alt="">
                                 </div>
                                 <div class="info">
-                                    <span class="title text-semibold">admin</span>
+                                    <span class="title text-semibold">{{ Auth::user()->name }}</span>
                                     <span class="sub-title">{{ __('ready') }}</span>
                                 </div>
                             </li>
@@ -166,10 +166,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form-admin').submit();">
                             <i class="ti-power-off p-r-10"></i>
                             <span>{{ __('log out') }}</span>
                         </a>
+                        {{ Form::open(['method' => 'post', 'url' => 'logout', 'id' => 'logout-form-admin']) }}
+                        {{ Form::close() }}
                     </li>
                 </ul>
             </li>
