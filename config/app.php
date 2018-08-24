@@ -214,6 +214,7 @@ return [
     ],
 
     'image' => 'images/',
+    'mostViewed' => 8,
     'trendNumber' => 10,
     'ratePercent' => 20,
     'filterCount' => 100,

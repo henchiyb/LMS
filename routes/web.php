@@ -22,6 +22,7 @@ Auth::routes();
 Route::group(['namespace' => 'Users'], function () {
     Route::resource('users', 'UserController')->only('show');
     Route::post('users/{id}/update', 'UserController@update');
+    Route::get('users/{id}/my_course', 'UserController@myCourse')->name('my-course');
 
     Route::resource('courses', 'CourseController');
     Route::get('courses/filter/{filter}', 'CourseController@getCourseFollowFilter')->name('courses.filter');
